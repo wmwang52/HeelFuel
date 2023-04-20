@@ -45,14 +45,10 @@ class AddFoodViewModel: ObservableObject {
         UserDefaults.standard.set(carbs, forKey: "carbs")
         protein += Int(food.protein.digits)!
         UserDefaults.standard.set(protein, forKey: "protein")
+        
+//        UserDefaults.standard.set(meal, forKey: meal.mealTime)
     }
     
-//    public func addMealValues(food: Food, mealValues: [String : Int]) {
-//        mealValues["calories"] += Int(food.calories.digits)!
-//        mealValues["fat"] += Int(food.calories.digits)!
-//        mealValues["carbs"] += Int(food.calories.digits)!
-//        mealValues["protein"] += Int(food.calories.digits)!
-//    }
-    
+
     
 }

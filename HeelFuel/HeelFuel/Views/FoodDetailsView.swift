@@ -32,16 +32,19 @@ struct FoodDetailView: View {
             .navigationTitle("Food Details")
             .toolbar{
                 ToolbarItem(placement: .navigationBarTrailing){
-                    Button{                       
-                        vm.addFoodValues(food: food)
+                    Button{
                         meal.caloriesEaten += Int(food.calories.digits)!
                         meal.proteinEaten += Int(food.protein.digits)!
                         meal.fatEaten += Int(food.totalFat.digits)!
                         meal.carbsEaten += Int(food.totalCarbohydrate.digits)!
-                        print(meal.caloriesEaten)
                         meal.mealList.append(food)
-                        print(meal.mealList.count)
+                        //UserDefaults.standard.set(meal, forKey: meal.mealTime)
+                        // Pass in a meal to each
+                        vm.addFoodValues(food: food)
+//                        vm.addFoodValues(food: food, meal: meal)
+//                        UserDefaults.standard.set(meal, forKey: meal.mealTime)
                         dismiss()
+                        
                     } label: {
                         Text("Add Food")
                     }
