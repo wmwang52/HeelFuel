@@ -18,7 +18,6 @@ struct AddFoodView: View {
                 VStack {
                     List {
                         ForEach(foods[meal.index!]) { item in
-                            Section {
                                 NavigationLink (destination: FoodDetailView(meal: $meal, vm: vm, food: item.self)) {
                                     VStack (alignment: .leading, spacing: 4){
                                         Text("\(item.name)").font(.headline)
@@ -26,7 +25,6 @@ struct AddFoodView: View {
                                     }
                                     .listRowInsets(EdgeInsets(top: 2, leading: 0, bottom: 0, trailing: 0))
                                 }
-                                    }
                                 }
                             }
                         }

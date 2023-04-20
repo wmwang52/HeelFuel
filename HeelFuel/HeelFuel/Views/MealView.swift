@@ -41,11 +41,6 @@ struct MealView: View {
                     Spacer()
                     macroSection
                     Divider()
-                  
- 
-                        
-                
-                    
                         ForEach(meal.mealList) { item in
                             NavigationLink {
                                 FoodDetailView(meal: $meal, vm: vm, food: item.self)
@@ -60,12 +55,13 @@ struct MealView: View {
                                         .font(.title2).foregroundColor(Color.black)
 
                                 }.padding(.all).fontWeight(.bold).background(
-                                    Rectangle().fill(Color.white).cornerRadius(20).shadow(radius: 2)
+                                    Rectangle()
+                                        .fill(Color.white).cornerRadius(20).shadow(radius: 2)
                                 )
                             }
                     }
                     Spacer()
-                }
+                }.padding(.all)
             }
             
             .toolbar {

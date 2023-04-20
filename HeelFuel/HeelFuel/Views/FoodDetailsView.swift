@@ -38,7 +38,7 @@ struct FoodDetailView: View {
                         meal.fatEaten += Int(food.totalFat.digits)!
                         meal.carbsEaten += Int(food.totalCarbohydrate.digits)!
                         meal.mealList.append(food)
-                        //UserDefaults.standard.set(meal, forKey: meal.mealTime)
+//                        UserDefaults.standard.set(meal, forKey: meal.mealTime)
                         // Pass in a meal to each
                         vm.addFoodValues(food: food)
 //                        vm.addFoodValues(food: food, meal: meal)
