@@ -13,7 +13,6 @@ struct HomeView: View {
     @State var breakfast = UserDefaults.standard.object(forKey: "Breakfast") as? MealModel ?? MealModel(mealTime: "Breakfast", emoji: "🍳", image: "breakfast", index: 0, caloriesEaten: 0, carbsEaten: 0, fatEaten: 0, proteinEaten: 0, mealList: [])
     @State var lunch =  UserDefaults.standard.object(forKey: "Lunch") as? MealModel ?? MealModel(mealTime: "Lunch", emoji: "🍱",  image: "lunch", index: 1, caloriesEaten: 0, carbsEaten: 0, fatEaten: 0, proteinEaten: 0, mealList: [])
     @State var dinner = UserDefaults.standard.object(forKey: "Dinner") as? MealModel ?? MealModel(mealTime: "Dinner", emoji: "🍽️",  image: "dinner", index: 3, caloriesEaten: 0, carbsEaten: 0, fatEaten: 0, proteinEaten: 0, mealList: [])
-    @State var snack = MealModel(mealTime: "Snack", emoji: "🍎", image: "snack", caloriesEaten: 0, carbsEaten: 0, fatEaten: 0, proteinEaten: 0, mealList: [])
     
     var body: some View {
         NavigationStack {
@@ -49,11 +48,6 @@ struct HomeView: View {
                             .foregroundColor(.black)
                     }
                     Divider()
-                    NavigationLink {
-                        MealView(vm: vm, meal: $snack)} label: {                       MealSectionView(icon: "🍎", mealTime: "Snack", calories: String(snack.caloriesEaten))
-                            .foregroundColor(.black)
-                    }
-                    
                     
                 }
                 .cornerRadius(20)
