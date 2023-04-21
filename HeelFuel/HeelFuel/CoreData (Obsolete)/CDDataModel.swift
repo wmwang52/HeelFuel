@@ -5,6 +5,8 @@
 //  Created by Milan Dutta on 4/10/23.
 //
 
+//MARK: Creates the DataModel used for CoreData
+
 import Foundation
 import CoreData
 

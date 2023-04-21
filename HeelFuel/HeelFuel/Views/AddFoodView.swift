@@ -3,7 +3,8 @@
 //  HeelFuel
 //
 //  Created by Mitchell Anderson on 4/17/23.
-// g
+
+//MARK: View that displays all the different foods for a specific meal
 
 import SwiftUI
 

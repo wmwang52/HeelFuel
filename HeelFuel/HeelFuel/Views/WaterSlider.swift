@@ -5,6 +5,8 @@
 //  Created by William Wang on 4/21/23.
 //
 
+//MARK: View that displays the amount of water the user has drank
+
 import SwiftUI
 
 struct WaterSlider: View {

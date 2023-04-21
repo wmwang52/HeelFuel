@@ -1,3 +1,12 @@
+//
+//  MealModel.swift
+//  HeelFuel
+//
+//  Created by Milan Dutta on 4/14/23.
+//
+
+//MARK: Creates the model used for the food
+
 import Foundation
 
 struct Food: Codable, Hashable, Identifiable {

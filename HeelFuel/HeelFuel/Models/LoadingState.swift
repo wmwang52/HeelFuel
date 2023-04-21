@@ -5,6 +5,8 @@
 //  Created by Mitchell Anderson on 4/17/23.
 //
 
+//MARK: Represents the different options when loading the data
+
 import Foundation
 
 enum LoadingState {

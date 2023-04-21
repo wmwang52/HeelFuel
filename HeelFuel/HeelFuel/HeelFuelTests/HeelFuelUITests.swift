@@ -5,6 +5,8 @@
 //  Created by Milan Dutta on 4/17/23.
 //
 
+//MARK: Tests the functionality of the Views
+
 import XCTest
 
 class AddFoodViewTests: XCTestCase {

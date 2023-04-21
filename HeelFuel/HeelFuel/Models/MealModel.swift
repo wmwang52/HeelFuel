@@ -5,6 +5,8 @@
 //  Created by Milan Dutta on 4/14/23.
 //
 
+//MARK: Creates the model for the meals
+
 import Foundation
 import SwiftUI
 

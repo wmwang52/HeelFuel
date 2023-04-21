@@ -5,6 +5,8 @@
 //  Created by Milan Dutta on 4/17/23.
 //
 
+//MARK: Tests the the functionality of the Models
+
 import XCTest
 
 class MealModelTests: XCTestCase {

@@ -9,7 +9,6 @@ import SwiftUI
 
 @main
 struct HeelFuelApp: App {
-    @StateObject var vm: CDDataModel = CDDataModel()
     var body: some Scene {
         WindowGroup {
             HomeView().preferredColorScheme(.light)

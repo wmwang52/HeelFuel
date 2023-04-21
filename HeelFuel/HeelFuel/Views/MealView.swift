@@ -5,6 +5,8 @@
 //  Created by Mitchell Anderson on 4/12/23.
 //
 
+//MARK: View that gives an overview of calories and macros for a meal
+
 import Foundation
 import SwiftUI
 

@@ -5,6 +5,8 @@
 //  Created by Milan Dutta on 4/14/23.
 //
 
+//MARK: View that is shown when the user opens the app
+
 import SwiftUI
 
 struct HomeView: View {
@@ -85,17 +87,10 @@ struct HomeView: View {
             }
 
         }.onAppear {
-            resetDefaults()
+            vm.resetDefaults()
             vm.findFoods()
             print(vm.foodList.indices)
         }
-    }
-}
-
-private func resetDefaults() {
-    let defaults = UserDefaults.standard
-    if let bundle = Bundle.main.bundleIdentifier {
-        defaults.removePersistentDomain(forName: bundle)
     }
 }
 

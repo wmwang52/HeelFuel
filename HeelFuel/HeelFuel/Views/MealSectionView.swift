@@ -5,6 +5,8 @@
 //  Created by Milan Dutta on 4/14/23.
 //
 
+//MARK: View that displays the information of a meal in HomeView
+
 import SwiftUI
 
 struct MealSectionView: View {

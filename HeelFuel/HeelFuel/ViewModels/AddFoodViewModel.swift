@@ -5,6 +5,8 @@
 //  Created by Mitchell Anderson on 4/17/23.
 //
 
+//MARK: ViewModel used in adding foods using UserDefaults to store the data
+
 import Foundation
 
 @MainActor
@@ -50,5 +52,12 @@ class AddFoodViewModel: ObservableObject {
         fat += Int(food.totalFat.digits)!
         carbs += Int(food.totalCarbohydrate.digits)!
         protein += Int(food.protein.digits)!
+    }
+    
+    public func resetDefaults() {
+        fat = 0
+        carbs = 0
+        protein = 0
+        totalCalories = 0
     }
 }
