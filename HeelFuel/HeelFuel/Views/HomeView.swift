@@ -85,9 +85,17 @@ struct HomeView: View {
             }
 
         }.onAppear {
+            resetDefaults()
             vm.findFoods()
             print(vm.foodList.indices)
         }
+    }
+}
+
+private func resetDefaults() {
+    let defaults = UserDefaults.standard
+    if let bundle = Bundle.main.bundleIdentifier {
+        defaults.removePersistentDomain(forName: bundle)
     }
 }
 

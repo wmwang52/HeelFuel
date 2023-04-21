@@ -14,28 +14,22 @@ class AddFoodViewModel: ObservableObject {
     @Published var foodList: [[Food]] = [[]]
     @Published var test: [Food] = []
     @Published var state: LoadingState = .idle
-    @Published var totalCalories = UserDefaults.standard.integer(forKey: "calories")
-    @Published var carbs: Int = UserDefaults.standard.integer(forKey: "carbs")
-    @Published var fat: Int = UserDefaults.standard.integer(forKey: "fat")
-    @Published var protein: Int = UserDefaults.standard.integer(forKey: "protein")
     
+    @Published var totalCalories = UserDefaults.standard.integer(forKey: "calories") {
+        didSet { UserDefaults.standard.set(totalCalories, forKey: "calories") }
+    }
     
+    @Published var carbs: Int = UserDefaults.standard.integer(forKey: "carbs") {
+        didSet { UserDefaults.standard.set(carbs, forKey: "carbs") }
+    }
     
+    @Published var fat: Int = UserDefaults.standard.integer(forKey: "fat") {
+        didSet { UserDefaults.standard.set(fat, forKey: "fat") }
+    }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    @Published var protein: Int = UserDefaults.standard.integer(forKey: "protein") {
+        didSet { UserDefaults.standard.set(protein, forKey: "protein") }
+    }
     
     public func findFoods() {
         Task {
@@ -53,14 +47,8 @@ class AddFoodViewModel: ObservableObject {
     
     public func addFoodValues(food: Food) {
         totalCalories += Int(food.calories.digits)!
-        UserDefaults.standard.set(totalCalories, forKey: "calories")
         fat += Int(food.totalFat.digits)!
-        UserDefaults.standard.set(fat, forKey: "fat")
         carbs += Int(food.totalCarbohydrate.digits)!
-        UserDefaults.standard.set(carbs, forKey: "carbs")
         protein += Int(food.protein.digits)!
-        UserDefaults.standard.set(protein, forKey: "protein")
-        
-//        UserDefaults.standard.set(meal, forKey: meal.mealTime)
     }
 }

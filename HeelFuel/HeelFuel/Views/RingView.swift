@@ -29,9 +29,12 @@ struct RingView: View {
     let calorieIndicator: String = "cal"
     var userCalorieGoal: Int = 3000
 
-    @State var ringValue = UserDefaults.standard.integer(forKey: "calories")
     var multiplier: Double {
         return Double(width) / Double(44)
+    }
+
+    var progress: Double {
+        return 1 - Double(vm.totalCalories) / Double(3000)
     }
 
     var body: some View {
@@ -41,14 +44,15 @@ struct RingView: View {
                     .stroke(Color.blue.opacity(0.1), style: StrokeStyle(lineWidth: 4 * multiplier))
                     .frame(width: width, height: height)
                 Circle()
-                    .trim(from: CGFloat(1 - (Double(ringValue) / Double(userCalorieGoal))), to: 1)
+                    .trim(from: progress, to: 1)
+
                     .stroke(LinearGradient(gradient: Gradient(colors: [Color("RingColor"), .blue]), startPoint: .top, endPoint: .bottom),
                             style: StrokeStyle(lineWidth: 5 * multiplier, lineCap: .round, lineJoin: .round, miterLimit: .infinity, dash: [20, 0], dashPhase: 0))
 
                     .rotationEffect(Angle(degrees: 90))
                     .rotation3DEffect(Angle(degrees: 180), axis: (x: 1, y: 0, z: 0))
                     .frame(width: width, height: height)
-                Text("\(ringValue) \(calorieIndicator)").bold()
+                Text("\(vm.totalCalories) \(calorieIndicator)").bold()
                     .font(.title2)
             }
             .padding()
