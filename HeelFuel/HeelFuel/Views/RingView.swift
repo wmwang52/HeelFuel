@@ -24,22 +24,24 @@ struct RingView: View {
     var proteinGoal: Float = 200
     // These three goals should be floats that reflect what the user inputs, or based on the API that calculates the optimal macro goals
 
-    var percent: CGFloat = 300
     let width: CGFloat = 140
     let height: CGFloat = 140
     let calorieIndicator: String = "cal"
-    var userCalorieGoal: Float = 2000
+    var userCalorieGoal: Int = 3000
+
+    @State var ringValue = UserDefaults.standard.integer(forKey: "calories")
+    var multiplier: Double {
+        return Double(width) / Double(44)
+    }
+
     var body: some View {
-        @State var ringValue = UserDefaults.standard.integer(forKey: "calories")
-        let multiplier = width / 44
-        @State var progress = 1 - (ringValue / Int(userCalorieGoal))
-        return HStack {
+        HStack {
             ZStack {
                 Circle()
                     .stroke(Color.blue.opacity(0.1), style: StrokeStyle(lineWidth: 4 * multiplier))
                     .frame(width: width, height: height)
                 Circle()
-                    .trim(from: CGFloat(progress), to: 1)
+                    .trim(from: CGFloat(1 - (Double(ringValue) / Double(userCalorieGoal))), to: 1)
                     .stroke(LinearGradient(gradient: Gradient(colors: [Color("RingColor"), .blue]), startPoint: .top, endPoint: .bottom),
                             style: StrokeStyle(lineWidth: 5 * multiplier, lineCap: .round, lineJoin: .round, miterLimit: .infinity, dash: [20, 0], dashPhase: 0))
 
@@ -52,9 +54,12 @@ struct RingView: View {
             .padding()
 
             HStack(spacing: 30) {
-                FoodElementView(element: "Carbs", gram: String(format: "100" + gramsString, ""), color: "carbs", elementValue: CGFloat(vm.carbs))
-                FoodElementView(element: "Fat", gram: String(format: "%.0f" + gramsString, ""), color: "fat", elementValue: CGFloat(vm.fat))
-                FoodElementView(element: "Protein", gram: String(format: "%.0f" + gramsString, ""), color: "protein", elementValue: CGFloat(vm.protein))
+                FoodElementView(element: "Carbs", gram: CGFloat(Int(vm.carbs)), color: "carbs", elementValue: CGFloat(Int(vm.carbs)))
+
+                FoodElementView(element: "Fat", gram: CGFloat(vm.fat), color: "fat", elementValue: CGFloat(vm.fat))
+
+                FoodElementView(element: "Protein", gram: CGFloat(vm.protein), color: "protein", elementValue: CGFloat(vm.protein))
+
                     .offset(x: -5)
             }
         }
@@ -69,17 +74,18 @@ struct RingView: View {
 struct RingView_Previews: PreviewProvider {
     static var previews: some View {
         RingView()
+            .environmentObject(AddFoodViewModel())
     }
 }
 
 struct FoodElementView: View {
     var element: String = ""
-    var gram: String = ""
+    var gram: CGFloat = 0
     var color: String = ""
     var elementValue: CGFloat = 0
     var body: some View {
         let height: CGFloat = 130
-        let multiplier = height / 2000
+        let multiplier = height / 800
         VStack {
             ZStack(alignment: .bottom) {
                 Rectangle()
@@ -96,9 +102,9 @@ struct FoodElementView: View {
                 }
             }
             .cornerRadius(10)
-            Text(element)
+            Text("\(element)")
                 .font(.system(size: 12))
-            Text(gram)
+            Text("\(String(format: "%.0f", gram)) g")
                 .font(.system(size: 10))
         }
     }

@@ -19,6 +19,24 @@ class AddFoodViewModel: ObservableObject {
     @Published var fat: Int = UserDefaults.standard.integer(forKey: "fat")
     @Published var protein: Int = UserDefaults.standard.integer(forKey: "protein")
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     public func findFoods() {
         Task {
             do {

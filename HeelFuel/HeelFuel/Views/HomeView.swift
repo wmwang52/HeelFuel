@@ -27,7 +27,7 @@ struct HomeView: View {
                     .environmentObject(AddFoodViewModel())
                 
                 Divider()
-                    .padding(.vertical,10)
+                    .padding(.vertical, 10)
                 
                 VStack(spacing: 0) {
                     NavigationLink {
@@ -46,9 +46,7 @@ struct HomeView: View {
                             .foregroundColor(.black)
                     }
                     Divider()
-                        .padding(.vertical,10)
 
-                    
                     NavigationLink {
                         MealView(vm: vm, meal: $dinner)
                     } label: {
@@ -60,7 +58,6 @@ struct HomeView: View {
                 .shadow(radius: 2)
                 .padding(.horizontal, 10)
                 
-                
                 ZStack {
                     Rectangle()
                         .foregroundColor(Color.white)
@@ -69,9 +66,7 @@ struct HomeView: View {
 
                         .shadow(radius: 2)
                         
-                   
                     VStack {
-                            
                         HStack {
                             Text("Water tracker")
                                 .font(.title2)
@@ -84,9 +79,7 @@ struct HomeView: View {
                         }
                     }
                     .padding(.vertical, 10)
-
                 }
-                
                 
                 Spacer()
             }
