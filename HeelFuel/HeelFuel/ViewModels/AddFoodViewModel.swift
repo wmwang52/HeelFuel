@@ -9,7 +9,7 @@ import Foundation
 
 @MainActor
 class AddFoodViewModel: ObservableObject {
-    private let service =  foodRequestService()
+    private let service = foodRequestService()
     
     @Published var foodList: [[Food]] = [[]]
     @Published var test: [Food] = []
@@ -19,8 +19,7 @@ class AddFoodViewModel: ObservableObject {
     @Published var fat: Int = UserDefaults.standard.integer(forKey: "fat")
     @Published var protein: Int = UserDefaults.standard.integer(forKey: "protein")
     
-    
-    public func findFoods()  {
+    public func findFoods() {
         Task {
             do {
                 let temp = try await service.requestFoods()
@@ -46,7 +45,4 @@ class AddFoodViewModel: ObservableObject {
         
 //        UserDefaults.standard.set(meal, forKey: meal.mealTime)
     }
-    
-
-    
 }

@@ -11,9 +11,10 @@ import SwiftUI
 struct MealView: View {
     @StateObject public var vm: AddFoodViewModel
     @Binding var meal: MealModel
-    
+    @State var showingPopover = false
+
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ScrollView {
                 VStack {
                     HStack {
@@ -41,33 +42,33 @@ struct MealView: View {
                     Spacer()
                     macroSection
                     Divider()
-                        ForEach(meal.mealList) { item in
-                            NavigationLink {
-                                FoodDetailView(meal: $meal, vm: vm, food: item.self)
-                            } label: {
-                                HStack(spacing: 4) {
-                                    Text("\(item.name)")
-                                        .font(.title).foregroundColor(Color.black)
+                    ForEach(meal.mealList) { item in
+                        NavigationLink {
+                            FoodDetailView(meal: $meal, vm: vm, togglePopup: $showingPopover, food: item.self)
+                        } label: {
+                            HStack(spacing: 4) {
+                                Text("\(item.name)")
+                                    .font(.title).foregroundColor(Color.black)
 
-                                    
-                                    Spacer()
-                                    Text("\(item.calories)")
-                                        .font(.title2).foregroundColor(Color.black)
+                                Spacer()
+                                Text("\(item.calories)")
+                                    .font(.title2).foregroundColor(Color.black)
 
-                                }.padding(.all).fontWeight(.bold).background(
-                                    Rectangle()
-                                        .fill(Color.white).cornerRadius(20).shadow(radius: 2)
-                                )
-                            }
+                            }.padding(.all).fontWeight(.bold).background(
+                                Rectangle()
+                                    .fill(Color.white).cornerRadius(20).shadow(radius: 2)
+                            )
+                        }
                     }
                     Spacer()
                 }.padding(.all)
             }
-            
+
             .toolbar {
                 ToolbarItem(placement: .bottomBar) {
-                    NavigationLink {
-                        AddFoodView(meal: $meal, vm: vm)
+                    Button {
+                        showingPopover.toggle()
+
                     } label: {
                         ZStack {
                             Rectangle().frame(width: 300, height: 50)
@@ -78,18 +79,21 @@ struct MealView: View {
                     }
                 }
             }
+            .popover(isPresented: $showingPopover) {
+                AddFoodView(meal: $meal, vm: vm, toggle: $showingPopover)
+            }
         }
     }
-    
+
     var macroSection: some View {
-        HStack {
+        HStack(spacing: 40) {
             VStack {
                 Text(String(meal.caloriesEaten))
                 Text("Calories")
             }.foregroundColor(Color.black)
             VStack {
                 Text(String(meal.carbsEaten))
-                Text("Carbohydrates")
+                Text("Carbs")
             }.foregroundColor(Color.black)
             VStack {
                 Text(String(meal.proteinEaten))
@@ -100,7 +104,7 @@ struct MealView: View {
                 Text("Fat")
             }.foregroundColor(Color.black)
         }.padding(.all).fontWeight(.bold).background(
-            Rectangle().fill(Color.white).cornerRadius(20).shadow(radius: 3)
+            Rectangle().fill(Color.white).cornerRadius(20).shadow(radius: 2)
         )
     }
 }

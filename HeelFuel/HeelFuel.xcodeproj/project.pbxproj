@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3400776B29F307230020016D /* WaterSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3400776A29F307230020016D /* WaterSlider.swift */; };
 		793CF82029E4D4700041269C /* HeelFuelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CF81F29E4D4700041269C /* HeelFuelApp.swift */; };
-		793CF82229E4D4700041269C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CF82129E4D4700041269C /* ContentView.swift */; };
 		793CF82429E4D4740041269C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 793CF82329E4D4740041269C /* Assets.xcassets */; };
 		793CF82829E4D4740041269C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 793CF82729E4D4740041269C /* Preview Assets.xcassets */; };
 		793CF83029E4DF3B0041269C /* CDfoodclass.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 793CF82E29E4DF3B0041269C /* CDfoodclass.xcdatamodeld */; };
@@ -27,9 +27,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3400776A29F307230020016D /* WaterSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterSlider.swift; sourceTree = "<group>"; };
 		793CF81C29E4D4700041269C /* HeelFuel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeelFuel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		793CF81F29E4D4700041269C /* HeelFuelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeelFuelApp.swift; sourceTree = "<group>"; };
-		793CF82129E4D4700041269C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		793CF82329E4D4740041269C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		793CF82529E4D4740041269C /* HeelFuel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HeelFuel.entitlements; sourceTree = "<group>"; };
 		793CF82729E4D4740041269C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -103,12 +103,12 @@
 			isa = PBXGroup;
 			children = (
 				793CF83329E4EA3D0041269C /* RingView.swift */,
-				797AF1AA29E9C59E0056A291 /* FoodDetailsView.swift */,
-				793CF82129E4D4700041269C /* ContentView.swift */,
 				797AF1B729E9CDF70056A291 /* HomeView.swift */,
+				3400776A29F307230020016D /* WaterSlider.swift */,
 				797AF1B229E9C96E0056A291 /* MealView.swift */,
 				797AF1B929E9D6850056A291 /* MealSectionView.swift */,
 				D3313A3729EDBFEC006C491C /* AddFoodView.swift */,
+				797AF1AA29E9C59E0056A291 /* FoodDetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -225,10 +225,10 @@
 				797AF1AB29E9C59E0056A291 /* FoodDetailsView.swift in Sources */,
 				797AF1BA29E9D6850056A291 /* MealSectionView.swift in Sources */,
 				797AF1B129E9C9440056A291 /* MealModel.swift in Sources */,
-				793CF82229E4D4700041269C /* ContentView.swift in Sources */,
 				797AF1B829E9CDF70056A291 /* HomeView.swift in Sources */,
 				793CF83029E4DF3B0041269C /* CDfoodclass.xcdatamodeld in Sources */,
 				797AF1B329E9C96E0056A291 /* MealView.swift in Sources */,
+				3400776B29F307230020016D /* WaterSlider.swift in Sources */,
 				793CF83229E4E0AA0041269C /* CDDataModel.swift in Sources */,
 				D3313A3D29EDDF93006C491C /* LoadingState.swift in Sources */,
 				793CF82029E4D4700041269C /* HeelFuelApp.swift in Sources */,
@@ -357,7 +357,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HeelFuel/Preview Content\"";
-				DEVELOPMENT_TEAM = 8F8ZBY3Y85;
+				DEVELOPMENT_TEAM = 6C894L8XAD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -375,7 +375,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Milan-Dutta.HeelFuel";
+				PRODUCT_BUNDLE_IDENTIFIER = "William-Wang.HeelFuel";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -394,7 +394,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HeelFuel/Preview Content\"";
-				DEVELOPMENT_TEAM = 8F8ZBY3Y85;
+				DEVELOPMENT_TEAM = 6C894L8XAD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -412,7 +412,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Milan-Dutta.HeelFuel";
+				PRODUCT_BUNDLE_IDENTIFIER = "William-Wang.HeelFuel";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
