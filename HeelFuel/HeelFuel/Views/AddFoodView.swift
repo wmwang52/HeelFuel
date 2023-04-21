@@ -92,12 +92,14 @@ struct AddFoodView: View {
                                         
                                         Text("\(item.allergens)")
                                             .font(.subheadline).foregroundColor(.gray)
-                                            .padding(.bottom, 10)
+                                            .padding(.top, 10)
                                     }
                                 }
                             }
                         }
+                        
                     }
+                    
                 }
             case .idle:
                 VStack {
