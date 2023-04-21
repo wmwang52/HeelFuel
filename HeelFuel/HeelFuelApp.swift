@@ -12,7 +12,7 @@ struct HeelFuelApp: App {
     @StateObject var vm: CDDataModel = CDDataModel()
     var body: some Scene {
         WindowGroup {
-            ContentView().preferredColorScheme(.light)
+            HomeView().preferredColorScheme(.light)
         }
     }
 }

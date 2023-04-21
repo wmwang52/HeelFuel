@@ -10,62 +10,61 @@ struct customShadow: ViewModifier {
     func body(content: Content) -> some View {
         content
             .shadow(color: .black.opacity(0.2), radius: 20, x: 0, y: 0)
-
     }
 }
+
 struct RingView: View {
     @EnvironmentObject var vm: AddFoodViewModel
-    
+
     // Varaibles dealing with Macros
     var macroGoals: Float = 2000
     var gramsString: String = "g"
     var carbGoal: Float = 200
     var fatGoal: Float = 200
     var proteinGoal: Float = 200
-    //These three goals should be floats that reflect what the user inputs, or based on the API that calculates the optimal macro goals
-    
-    
-    var percent: CGFloat = 300
+    // These three goals should be floats that reflect what the user inputs, or based on the API that calculates the optimal macro goals
+
     let width: CGFloat = 140
     let height: CGFloat = 140
     let calorieIndicator: String = "cal"
-    var userCalorieGoal: Float = 2000
+    var userCalorieGoal: Int = 3000
+
+    var multiplier: Double {
+        return Double(width) / Double(44)
+    }
+
+    var progress: Double {
+        return 1 - Double(vm.totalCalories) / Double(3000)
+    }
+
     var body: some View {
-        @State var ringValue = UserDefaults.standard.integer(forKey: "calories")
-        let multiplier = width / 44
-        @State var progress = 1 - (ringValue / Int(userCalorieGoal))
-        return HStack {
+        HStack {
             ZStack {
                 Circle()
                     .stroke(Color.blue.opacity(0.1), style: StrokeStyle(lineWidth: 4 * multiplier))
                     .frame(width: width, height: height)
                 Circle()
-                    .trim(from: CGFloat(progress), to: 1)
+                    .trim(from: progress, to: 1)
+
                     .stroke(LinearGradient(gradient: Gradient(colors: [Color("RingColor"), .blue]), startPoint: .top, endPoint: .bottom),
                             style: StrokeStyle(lineWidth: 5 * multiplier, lineCap: .round, lineJoin: .round, miterLimit: .infinity, dash: [20, 0], dashPhase: 0))
-                    
+
                     .rotationEffect(Angle(degrees: 90))
                     .rotation3DEffect(Angle(degrees: 180), axis: (x: 1, y: 0, z: 0))
                     .frame(width: width, height: height)
-                Text("\(ringValue) \(calorieIndicator)").bold()
+                Text("\(vm.totalCalories) \(calorieIndicator)").bold()
                     .font(.title2)
             }
             .padding()
-            
-//            HStack (spacing: 30) {
-//                ForEach(vm.saveValueEntity) { item in
-//                    FoodElementView(element: "Carbs", gram: String(format: "%.0f", item.carbs), color: "blue", elementValue: CGFloat(item.carbs))
-//                    FoodElementView(element: "Carbs", gram: String(format: "%.0f", item.fat), color: "red", elementValue: CGFloat(item.fat))
-//                    FoodElementView(element: "Carbs", gram: String(format: "%.0f", item.protein), color: "green", elementValue: CGFloat(item.protein))
-//                }
-//            }
-            HStack (spacing: 30) {
-                
-                FoodElementView(element: "Carbs", gram: String(format: "100" + gramsString, ""), color: "carbs", elementValue: CGFloat(vm.carbs))
-                FoodElementView(element: "Fat", gram: String(format: "%.0f" + gramsString, ""), color: "fat", elementValue: CGFloat(vm.fat))
-                FoodElementView(element: "Protein", gram: String(format: "%.0f" + gramsString, ""), color: "protein", elementValue: CGFloat(vm.protein))
+
+            HStack(spacing: 30) {
+                FoodElementView(element: "Carbs", gram: CGFloat(Int(vm.carbs)), color: "carbs", elementValue: CGFloat(Int(vm.carbs)))
+
+                FoodElementView(element: "Fat", gram: CGFloat(vm.fat), color: "fat", elementValue: CGFloat(vm.fat))
+
+                FoodElementView(element: "Protein", gram: CGFloat(vm.protein), color: "protein", elementValue: CGFloat(vm.protein))
+
                     .offset(x: -5)
-                
             }
         }
         .frame(height: 180)
@@ -85,14 +84,14 @@ struct RingView_Previews: PreviewProvider {
 
 struct FoodElementView: View {
     var element: String = ""
-    var gram: String = ""
+    var gram: CGFloat = 0
     var color: String = ""
     var elementValue: CGFloat = 0
     var body: some View {
         let height: CGFloat = 130
-        let multiplier = height / 2000
+        let multiplier = height / 800
         VStack {
-            ZStack (alignment: .bottom) {
+            ZStack(alignment: .bottom) {
                 Rectangle()
                     .frame(width: 8, height: 110)
                     .foregroundColor(.gray.opacity(0.5))
@@ -107,9 +106,9 @@ struct FoodElementView: View {
                 }
             }
             .cornerRadius(10)
-            Text(element)
+            Text("\(element)")
                 .font(.system(size: 12))
-            Text(gram)
+            Text("\(String(format: "%.0f", gram)) g")
                 .font(.system(size: 10))
         }
     }

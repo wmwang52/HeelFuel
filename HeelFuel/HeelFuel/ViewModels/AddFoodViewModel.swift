@@ -9,20 +9,29 @@ import Foundation
 
 @MainActor
 class AddFoodViewModel: ObservableObject {
-    private let service =  foodRequestService()
+    private let service = foodRequestService()
     
     @Published var foodList: [[Food]] = [[]]
     @Published var test: [Food] = []
     @Published var state: LoadingState = .idle
-    @Published var totalCalories = UserDefaults.standard.integer(forKey: "calories")
-    @Published var carbs: Int = UserDefaults.standard.integer(forKey: "carbs")
-    @Published var fat: Int = UserDefaults.standard.integer(forKey: "fat")
-    @Published var protein: Int = UserDefaults.standard.integer(forKey: "protein")
     
+    @Published var totalCalories = UserDefaults.standard.integer(forKey: "calories") {
+        didSet { UserDefaults.standard.set(totalCalories, forKey: "calories") }
+    }
     
+    @Published var carbs: Int = UserDefaults.standard.integer(forKey: "carbs") {
+        didSet { UserDefaults.standard.set(carbs, forKey: "carbs") }
+    }
     
+    @Published var fat: Int = UserDefaults.standard.integer(forKey: "fat") {
+        didSet { UserDefaults.standard.set(fat, forKey: "fat") }
+    }
     
-    public func findFoods()  {
+    @Published var protein: Int = UserDefaults.standard.integer(forKey: "protein") {
+        didSet { UserDefaults.standard.set(protein, forKey: "protein") }
+    }
+    
+    public func findFoods() {
         Task {
             do {
                 let temp = try await service.requestFoods()
@@ -38,21 +47,8 @@ class AddFoodViewModel: ObservableObject {
     
     public func addFoodValues(food: Food) {
         totalCalories += Int(food.calories.digits)!
-        UserDefaults.standard.set(totalCalories, forKey: "calories")
         fat += Int(food.totalFat.digits)!
-        UserDefaults.standard.set(fat, forKey: "fat")
         carbs += Int(food.totalCarbohydrate.digits)!
-        UserDefaults.standard.set(carbs, forKey: "carbs")
         protein += Int(food.protein.digits)!
-        UserDefaults.standard.set(protein, forKey: "protein")
     }
-    
-//    public func addMealValues(food: Food, mealValues: [String : Int]) {
-//        mealValues["calories"] += Int(food.calories.digits)!
-//        mealValues["fat"] += Int(food.calories.digits)!
-//        mealValues["carbs"] += Int(food.calories.digits)!
-//        mealValues["protein"] += Int(food.calories.digits)!
-//    }
-    
-    
 }
