@@ -15,10 +15,6 @@
 		793CF83229E4E0AA0041269C /* CDDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CF83129E4E0AA0041269C /* CDDataModel.swift */; };
 		793CF83429E4EA3D0041269C /* RingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CF83329E4EA3D0041269C /* RingView.swift */; };
 		79413BD029F3374300C4D512 /* HeelFuelTests in Resources */ = {isa = PBXBuildFile; fileRef = 79413BCF29F3374300C4D512 /* HeelFuelTests */; };
-		79413BDF29F488E400C4D512 /* Services in Resources */ = {isa = PBXBuildFile; fileRef = 79413BDE29F488E400C4D512 /* Services */; };
-		79413BE129F488EC00C4D512 /* Models in Resources */ = {isa = PBXBuildFile; fileRef = 79413BE029F488EC00C4D512 /* Models */; };
-		79413BE329F4890700C4D512 /* TryingAgainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79413BE229F4890700C4D512 /* TryingAgainApp.swift */; };
-		79413BE529F4890F00C4D512 /* ViewModels in Resources */ = {isa = PBXBuildFile; fileRef = 79413BE429F4890F00C4D512 /* ViewModels */; };
 		797AF1AB29E9C59E0056A291 /* FoodDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797AF1AA29E9C59E0056A291 /* FoodDetailsView.swift */; };
 		797AF1AD29E9C5D10056A291 /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797AF1AC29E9C5D10056A291 /* FoodModel.swift */; };
 		797AF1B129E9C9440056A291 /* MealModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797AF1B029E9C9440056A291 /* MealModel.swift */; };
@@ -42,17 +38,6 @@
 		793CF83129E4E0AA0041269C /* CDDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDDataModel.swift; sourceTree = "<group>"; };
 		793CF83329E4EA3D0041269C /* RingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingView.swift; sourceTree = "<group>"; };
 		79413BCF29F3374300C4D512 /* HeelFuelTests */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = HeelFuelTests; path = HeelFuel/HeelFuelTests; sourceTree = SOURCE_ROOT; };
-		79413BD729F488CB00C4D512 /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
-		79413BD829F488CB00C4D512 /* Clouds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clouds.swift; sourceTree = "<group>"; };
-		79413BD929F488CB00C4D512 /* Recommendations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommendations.swift; sourceTree = "<group>"; };
-		79413BDA29F488CB00C4D512 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
-		79413BDB29F488CB00C4D512 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
-		79413BDC29F488CB00C4D512 /* CardRecommendationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRecommendationView.swift; sourceTree = "<group>"; };
-		79413BDD29F488CB00C4D512 /* QCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QCardView.swift; sourceTree = "<group>"; };
-		79413BDE29F488E400C4D512 /* Services */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Services; path = ../../../../../../../Downloads/TryingAgain/TryingAgain/Services; sourceTree = "<group>"; };
-		79413BE029F488EC00C4D512 /* Models */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Models; path = ../../../../../../../Downloads/TryingAgain/TryingAgain/Models; sourceTree = "<group>"; };
-		79413BE229F4890700C4D512 /* TryingAgainApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TryingAgainApp.swift; path = ../../../../../../../Downloads/TryingAgain/TryingAgain/TryingAgainApp.swift; sourceTree = "<group>"; };
-		79413BE429F4890F00C4D512 /* ViewModels */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ViewModels; path = ../../../../../../../Downloads/TryingAgain/TryingAgain/ViewModels; sourceTree = "<group>"; };
 		797AF1AA29E9C59E0056A291 /* FoodDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsView.swift; sourceTree = "<group>"; };
 		797AF1AC29E9C5D10056A291 /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
 		797AF1B029E9C9440056A291 /* MealModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealModel.swift; sourceTree = "<group>"; };
@@ -104,7 +89,6 @@
 				797AF1AE29E9C8E20056A291 /* Views */,
 				793CF82529E4D4740041269C /* HeelFuel.entitlements */,
 				793CF82329E4D4740041269C /* Assets.xcassets */,
-				79413BD529F488BD00C4D512 /* All Quiz Files */,
 				793CF82629E4D4740041269C /* Preview Content */,
 			);
 			path = HeelFuel;
@@ -116,32 +100,6 @@
 				793CF82729E4D4740041269C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		79413BD529F488BD00C4D512 /* All Quiz Files */ = {
-			isa = PBXGroup;
-			children = (
-				79413BE429F4890F00C4D512 /* ViewModels */,
-				79413BE229F4890700C4D512 /* TryingAgainApp.swift */,
-				79413BE029F488EC00C4D512 /* Models */,
-				79413BDE29F488E400C4D512 /* Services */,
-				79413BD629F488CB00C4D512 /* Views */,
-			);
-			path = "All Quiz Files";
-			sourceTree = "<group>";
-		};
-		79413BD629F488CB00C4D512 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				79413BD729F488CB00C4D512 /* QuestionView.swift */,
-				79413BD829F488CB00C4D512 /* Clouds.swift */,
-				79413BD929F488CB00C4D512 /* Recommendations.swift */,
-				79413BDA29F488CB00C4D512 /* QuizView.swift */,
-				79413BDB29F488CB00C4D512 /* WelcomeView.swift */,
-				79413BDC29F488CB00C4D512 /* CardRecommendationView.swift */,
-				79413BDD29F488CB00C4D512 /* QCardView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		797AF1AE29E9C8E20056A291 /* Views */ = {
@@ -251,12 +209,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79413BE129F488EC00C4D512 /* Models in Resources */,
-				79413BDF29F488E400C4D512 /* Services in Resources */,
 				793CF82829E4D4740041269C /* Preview Assets.xcassets in Resources */,
 				793CF82429E4D4740041269C /* Assets.xcassets in Resources */,
 				79413BD029F3374300C4D512 /* HeelFuelTests in Resources */,
-				79413BE529F4890F00C4D512 /* ViewModels in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +235,6 @@
 				3400776B29F307230020016D /* WaterSlider.swift in Sources */,
 				793CF83229E4E0AA0041269C /* CDDataModel.swift in Sources */,
 				D3313A3D29EDDF93006C491C /* LoadingState.swift in Sources */,
-				79413BE329F4890700C4D512 /* TryingAgainApp.swift in Sources */,
 				793CF82029E4D4700041269C /* HeelFuelApp.swift in Sources */,
 				797AF1AD29E9C5D10056A291 /* FoodModel.swift in Sources */,
 			);
