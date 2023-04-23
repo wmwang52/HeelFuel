@@ -5,10 +5,9 @@
 //  Created by Milan Dutta on 4/10/23.
 //
 
-//MARK: View that displays the calories and macros eaten
+// MARK: View that displays the calories and macros eaten
 
 import SwiftUI
-
 
 struct customShadow: ViewModifier {
     func body(content: Content) -> some View {
@@ -26,7 +25,6 @@ struct RingView: View {
     var carbGoal: Float = 200
     var fatGoal: Float = 200
     var proteinGoal: Float = 200
-
 
     let width: CGFloat = 140
     let height: CGFloat = 140
@@ -89,48 +87,52 @@ struct FoodElementView: View {
 //    var gram: CGFloat = 0
 //    var color: String = ""
 //    var elementValue: CGFloat = 0
-    
+    @EnvironmentObject var data: WelcomeViewModel
+
     let title: String
     let color: String
     let current: Int
     let maximum: Int
-    
+
     private let width: CGFloat = 8
     private let maxHeight: CGFloat = 130
-    
+
     private var adjustedHeight: CGFloat {
         let fraction = Double(current) / Double(maximum)
         return min(1, fraction) * maxHeight
     }
-    
+
     var body: some View {
         VStack {
-            ZStack(alignment: .bottom) {
-                Rectangle()
-                    .fill(Color.gray.opacity(0.5))
-                    .frame(width: 8, height: maxHeight)
-                
-                Rectangle()
-                    .fill(Color(color))
-                    .frame(width: width, height: adjustedHeight)
-                
-                
-//                if elementValue != 0 {
-//                    Rectangle()
-//                        .frame(width: 8, height: elementValue * multiplier)
-//
-//                } else {
-//                    Rectangle()
-//                        .frame(width: 8, height: 110)
-//                        .foregroundColor(Color(color))
-//                }
+            HStack {
+                ZStack(alignment: .bottom) {
+                    Rectangle()
+                        .fill(Color.gray.opacity(0.5))
+                        .frame(width: 8, height: maxHeight)
+
+                    Rectangle()
+                        .fill(Color(color))
+                        .frame(width: width, height: adjustedHeight)
+                }
+                .cornerRadius(10)
+
+                ZStack(alignment: .bottom) {
+                    Rectangle()
+                        .fill(Color.gray.opacity(0.5))
+                        .frame(width: 8, height: maxHeight)
+
+                    Rectangle()
+                        .fill(Color("CarolinaBlue"))
+                        .frame(width: width, height: CGFloat(data.healthStats[title]!))
+                }
+                .cornerRadius(10)
             }
-            .cornerRadius(10)
+
             Text("\(title)")
                 .font(.system(size: 12))
-            
-            Text("\(current) g")
-                .font(.system(size: 10))
+
+            Text("\(current)g / \(data.healthStats[title]!)g")
+                .font(.system(size: 7))
         }
     }
 }

@@ -22,9 +22,12 @@ struct MealSectionView: View {
             VStack(alignment: .leading) {
                 Text(mealTime)
                     .fontWeight(.bold)
-                Text("\(calories) cal")
-                    .foregroundColor(.secondary)
-                    .font(.subheadline)
+                if calories != "" {
+                    Text("\(calories) cal")
+                        .foregroundColor(.secondary)
+                        .font(.subheadline)
+                }
+                
             }
             Spacer()
             Image(systemName: "plus")
