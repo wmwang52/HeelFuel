@@ -2,8 +2,6 @@
 //  HomeView.swift
 //  HeelFuel
 //
-//  Created by Milan Dutta on 4/14/23.
-//
 
 //MARK: View that is shown when the user opens the app
 
