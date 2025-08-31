@@ -19,19 +19,13 @@ struct HomeView: View {
     @State var lunch = UserDefaults.standard.object(forKey: "Lunch") as? MealModel ?? MealModel(mealTime: "Lunch", emoji: "🍱", image: "lunch", index: 1, caloriesEaten: 0, carbsEaten: 0, fatEaten: 0, proteinEaten: 0, mealList: [])
     @State var dinner = UserDefaults.standard.object(forKey: "Dinner") as? MealModel ?? MealModel(mealTime: "Dinner", emoji: "🍽️", image: "dinner", index: 3, caloriesEaten: 0, carbsEaten: 0, fatEaten: 0, proteinEaten: 0, mealList: [])
 
-    @EnvironmentObject var welcomeVM: WelcomeViewModel
     
     var body: some View {
         NavigationStack {
             VStack {
                 HStack {
                     
-                    Text("\(welcomeVM.setName())Daily Macros").fontDesign(.default).font(.title).padding(.all)
-                    Button {
-                        welcomeVM.signOut()
-                    } label: {
-                        Image(systemName: "xmark")
-                    }
+                   
                 }
                 RingView()
                     .environmentObject(AddFoodViewModel())
@@ -66,7 +60,6 @@ struct HomeView: View {
                     Divider()
                     
                     NavigationLink {
-                        RecommendationsView()
                     } label: {
                         MealSectionView(icon: "💡", mealTime: "Recommendations", calories: "")
                             .foregroundColor(.black)
@@ -84,18 +77,7 @@ struct HomeView: View {
 
                         .shadow(radius: 2)
                         
-                    VStack {
-                        HStack {
-                            Text("Water tracker")
-                                .font(.title2)
-                                .fontWeight(.regular)
-
-                            VStack {
-                                WaterSlider(maxHeight: $maxHeight, sliderProgress: $sliderProgress, sliderHeight: $sliderHeight, lastDragValue: $lastDragValue)
-                                Text("\(Double(String(format: "%.1f", sliderProgress * 20))!)")
-                            }
-                        }
-                    }
+               
                     .padding(.vertical, 5)
                 }
                 

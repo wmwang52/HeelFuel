@@ -87,7 +87,6 @@ struct FoodElementView: View {
 //    var gram: CGFloat = 0
 //    var color: String = ""
 //    var elementValue: CGFloat = 0
-    @EnvironmentObject var data: WelcomeViewModel
 
     let title: String
     let color: String
@@ -123,7 +122,7 @@ struct FoodElementView: View {
 
                     Rectangle()
                         .fill(Color("CarolinaBlue"))
-                        .frame(width: width, height: CGFloat(data.healthStats[title]!))
+ 
                 }
                 .cornerRadius(10)
             }
@@ -131,8 +130,6 @@ struct FoodElementView: View {
             Text("\(title)")
                 .font(.system(size: 12))
 
-            Text("\(current)g / \(data.healthStats[title]!)g")
-                .font(.system(size: 7))
         }
     }
 }
