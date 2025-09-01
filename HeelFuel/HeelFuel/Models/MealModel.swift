@@ -8,13 +8,13 @@
 import Foundation
 
 struct MealViewModel {
-    var mealTime: String
-    var emoji: String
-    var image: String?
-    var index: Int?
-    var caloriesEaten: Int
-    var carbsEaten: Int
-    var fatEaten: Int
-    var proteinEaten: Int
-    var mealList: [FoodModel]
+    var mealTimeName: String
+    var mealEmoji: String
+    var mealImageName: String?
+    var mealIndex: Int?
+    var totalCaloriesConsumed: Int
+    var totalCarbsConsumed: Int
+    var totalFatConsumed: Int
+    var totalProteinConsumed: Int
+    var consumedFoodItems: [FoodModel]
 }

@@ -14,9 +14,9 @@ struct ContentView: View {
 
     @State var vm = FoodManagementViewModel()
 
-    @State var breakfast = MealViewModel(mealTime: "Breakfast", emoji: "🍳", image: "breakfast", index: 0, caloriesEaten: 0, carbsEaten: 0, fatEaten: 0, proteinEaten: 0, mealList: [])
-    @State var lunch = MealViewModel(mealTime: "Lunch", emoji: "🍱", image: "lunch", index: 1, caloriesEaten: 0, carbsEaten: 0, fatEaten: 0, proteinEaten: 0, mealList: [])
-    @State var dinner = MealViewModel(mealTime: "Dinner", emoji: "🍽️", image: "dinner", index: 3, caloriesEaten: 0, carbsEaten: 0, fatEaten: 0, proteinEaten: 0, mealList: [])
+    @State var breakfast = MealViewModel(mealTimeName: "Breakfast", mealEmoji: "🍳", mealImageName: "breakfast", mealIndex: 0, totalCaloriesConsumed: 0, totalCarbsConsumed: 0, totalFatConsumed: 0, totalProteinConsumed: 0, consumedFoodItems: [])
+    @State var lunch = MealViewModel(mealTimeName: "Lunch", mealEmoji: "🍱", mealImageName: "lunch", mealIndex: 1, totalCaloriesConsumed: 0, totalCarbsConsumed: 0, totalFatConsumed: 0, totalProteinConsumed: 0, consumedFoodItems: [])
+    @State var dinner = MealViewModel(mealTimeName: "Dinner", mealEmoji: "🍽️", mealImageName: "dinner", mealIndex: 3, totalCaloriesConsumed: 0, totalCarbsConsumed: 0, totalFatConsumed: 0, totalProteinConsumed: 0, consumedFoodItems: [])
 
     var body: some View {
         NavigationSplitView {
@@ -26,7 +26,7 @@ struct ContentView: View {
                         MealDetailView(vm: vm, meal: $breakfast)
                     } label: {
                         MealSectionView(icon: "🍳", mealTime: "Breakfast", calories: String(breakfast
-                                .caloriesEaten))
+                                .totalCaloriesConsumed))
                             .foregroundColor(.black)
                     }
                     Divider()
@@ -34,7 +34,7 @@ struct ContentView: View {
                     NavigationLink {
                         MealDetailView(vm: vm, meal: $lunch)
                     } label: {
-                        MealSectionView(icon: "🍱", mealTime: "Lunch", calories: String(lunch.caloriesEaten))
+                        MealSectionView(icon: "🍱", mealTime: "Lunch", calories: String(lunch.totalCaloriesConsumed))
                             .foregroundColor(.black)
                     }
                     Divider()
@@ -42,7 +42,7 @@ struct ContentView: View {
                     NavigationLink {
                         MealDetailView(vm: vm, meal: $dinner)
                     } label: {
-                        MealSectionView(icon: "🍽️", mealTime: "Dinner", calories: String(dinner.caloriesEaten))
+                        MealSectionView(icon: "🍽️", mealTime: "Dinner", calories: String(dinner.totalCaloriesConsumed))
                             .foregroundColor(.black)
                     }
                     Divider()

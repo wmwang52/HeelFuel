@@ -15,17 +15,17 @@ struct FoodSelectionView: View {
 
     var body: some View {
         NavigationStack {
-            switch vm.state {
+            switch vm.currentLoadingState {
             case .success(let foods):
                 VStack {
                     List {
-                        ForEach(foods[meal.index!]) { item in
-                            if item.name.contains(searchText) {
+                        ForEach(foods[meal.mealIndex!]) { item in
+                            if item.foodName.contains(searchText) {
                                 NavigationLink {
                                     FoodDetailView(meal: $meal, vm: vm, togglePopup: $toggle, food: item.self)
                                 } label: {
                                     VStack(alignment: .leading, spacing: 4) {
-                                        Text("\(item.name)").font(.headline)
+                                        Text("\(item.foodName)").font(.headline)
                                             .padding(.bottom, 5)
 
                                         Grid(horizontalSpacing: 20) {
@@ -40,16 +40,16 @@ struct FoodSelectionView: View {
                                             }
                                                     
                                             GridRow {
-                                                Text("🔥 \(item.calories.digits)")
-                                                if (item.protein.digits.starts(with: "0")) && (item.protein.digits.count > 1) {
-                                                    Text("🍗 0.\(item.protein.digits.deletingPrefix("0")) g")
+                                                Text("🔥 \(item.calorieCount.digits)")
+                                                if (item.proteinContent.digits.starts(with: "0")) && (item.proteinContent.digits.count > 1) {
+                                                    Text("🍗 0.\(item.proteinContent.digits.deletingPrefix("0")) g")
                                                 } else {
-                                                    Text("🍗 \(item.protein.digits) g")
+                                                    Text("🍗 \(item.proteinContent.digits) g")
                                                 }
                                                     
-                                                Text("🧈 \(item.totalFat.digits) g")
+                                                Text("🧈 \(item.totalFatContent.digits) g")
                                                         
-                                                Text("🍚 \(item.totalCarbohydrate.digits) g")
+                                                Text("🍚 \(item.totalCarbohydrateContent.digits) g")
                                             }
                                         }
                                         .font(.subheadline).foregroundColor(.gray)
@@ -61,7 +61,7 @@ struct FoodSelectionView: View {
                                     FoodDetailView(meal: $meal, vm: vm, togglePopup: $toggle, food: item.self)
                                 } label: {
                                     VStack(alignment: .leading, spacing: 4) {
-                                        Text("\(item.name)").font(.headline)
+                                        Text("\(item.foodName)").font(.headline)
                                             .padding(.bottom, 5)
 
                                         Grid(horizontalSpacing: 20) {
@@ -76,21 +76,21 @@ struct FoodSelectionView: View {
                                             }
                                                     
                                             GridRow {
-                                                Text("🔥 \(item.calories.digits)")
-                                                if (item.protein.digits.starts(with: "0")) && (item.protein.digits.count > 1) {
-                                                    Text("🍗 0.\(item.protein.digits.deletingPrefix("0")) g")
+                                                Text("🔥 \(item.calorieCount.digits)")
+                                                if (item.proteinContent.digits.starts(with: "0")) && (item.proteinContent.digits.count > 1) {
+                                                    Text("🍗 0.\(item.proteinContent.digits.deletingPrefix("0")) g")
                                                 } else {
-                                                    Text("🍗 \(item.protein.digits) g")
+                                                    Text("🍗 \(item.proteinContent.digits) g")
                                                 }
                                                     
-                                                Text("🧈 \(item.totalFat.digits) g")
+                                                Text("🧈 \(item.totalFatContent.digits) g")
                                                         
-                                                Text("🍚 \(item.totalCarbohydrate.digits) g")
+                                                Text("🍚 \(item.totalCarbohydrateContent.digits) g")
                                             }
                                         }
                                         .font(.subheadline).foregroundColor(.gray)
                                             
-                                        Text("\(item.allergens)")
+                                        Text("\(item.allergenInformation)")
                                             .font(.subheadline).foregroundColor(.gray)
                                             .padding(.top, 10)
                                     }

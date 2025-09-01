@@ -17,9 +17,9 @@ struct MealDetailView: View {
             ScrollView {
                 VStack {
                     HStack {
-                        Text(meal.emoji)
+                        Text(meal.mealEmoji)
                             .font(.largeTitle)
-                        Text(meal.mealTime)
+                        Text(meal.mealTimeName)
                             .font(.headline)
                     }
                     .padding()
@@ -30,7 +30,7 @@ struct MealDetailView: View {
                             .cornerRadius(20)
                             .shadow(radius: 5)
                     )
-                    Image("\(meal.image ?? "")")
+                    Image("\(meal.mealImageName ?? "")")
                         .resizable()
                         .scaledToFit()
                         .cornerRadius(20)
@@ -41,16 +41,16 @@ struct MealDetailView: View {
                     Spacer()
                     macroSection
                     Divider()
-                    ForEach(meal.mealList) { item in
+                    ForEach(meal.consumedFoodItems) { item in
                         NavigationLink {
                             FoodDetailView(meal: $meal, vm: vm, togglePopup: $showingPopover, food: item.self)
                         } label: {
                             HStack(spacing: 4) {
-                                Text("\(item.name)")
+                                Text("\(item.foodName)")
                                     .font(.title).foregroundColor(Color.black)
 
                                 Spacer()
-                                Text("\(item.calories)")
+                                Text("\(item.calorieCount)")
                                     .font(.title2).foregroundColor(Color.black)
 
                             }.padding(.all).fontWeight(.bold).background(
@@ -87,19 +87,19 @@ struct MealDetailView: View {
     var macroSection: some View {
         HStack(spacing: 40) {
             VStack {
-                Text(String(meal.caloriesEaten))
+                Text(String(meal.totalCaloriesConsumed))
                 Text("Calories")
             }.foregroundColor(Color.black)
             VStack {
-                Text(String(meal.carbsEaten))
+                Text(String(meal.totalCarbsConsumed))
                 Text("Carbs")
             }.foregroundColor(Color.black)
             VStack {
-                Text(String(meal.proteinEaten))
+                Text(String(meal.totalProteinConsumed))
                 Text("Protein")
             }.foregroundColor(Color.black)
             VStack {
-                Text(String(meal.fatEaten))
+                Text(String(meal.totalFatConsumed))
                 Text("Fat")
             }.foregroundColor(Color.black)
         }.padding(.all).fontWeight(.bold).background(

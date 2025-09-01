@@ -31,24 +31,24 @@ struct FoodDetailView: View {
                     nutrients
                     Divider()
 
-                    Text("\(food.ingredients)").fontWeight(.light).padding(.horizontal)
+                    Text("\(food.ingredientList)").fontWeight(.light).padding(.horizontal)
                     Spacer()
                 }
                 .padding()
-                .navigationTitle("\(food.name)")
+                .navigationTitle("\(food.foodName)")
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
                             togglePopup.toggle()
-                            meal.caloriesEaten += Int(food.calories.digits)!
-                            meal.proteinEaten += Int(food.protein.digits)!
-                            meal.fatEaten += Int(food.totalFat.digits)!
-                            meal.carbsEaten += Int(food.totalCarbohydrate.digits)!
-                            meal.mealList.append(food)
+                            meal.totalCaloriesConsumed += Int(food.calorieCount.digits)!
+                            meal.totalProteinConsumed += Int(food.proteinContent.digits)!
+                            meal.totalFatConsumed += Int(food.totalFatContent.digits)!
+                            meal.totalCarbsConsumed += Int(food.totalCarbohydrateContent.digits)!
+                            meal.consumedFoodItems.append(food)
                             //                        UserDefaults.standard.set(meal, forKey: meal.mealTime)
                             // Pass in a meal to each
-                            vm.addFoodValues(food: food)
+                            vm.addFoodNutritionalValues(foodItem: food)
                             //                        vm.addFoodValues(food: food, meal: meal)
                             //                        UserDefaults.standard.set(meal, forKey: meal.mealTime)
                             dismiss()
@@ -64,20 +64,20 @@ struct FoodDetailView: View {
 
     var KeyInfo: some View {
         Group {
-            Text("\(food.allergens)")
-            Text("\(food.servingSize)")
+            Text("\(food.allergenInformation)")
+            Text("\(food.servingSizeDescription)")
         }
         .padding(.leading).font(.title3)
     }
 
     var nutrients: some View {
         Group {
-            Text("\(food.transFat)")
-            Text("\(food.saturatedFat)")
-            Text("\(food.cholestrol)")
-            Text("\(food.sodium)")
-            Text("\(food.dietaryFiber)")
-            Text("\(food.sugars)")
+            Text("\(food.transFatContent)")
+            Text("\(food.saturatedFatContent)")
+            Text("\(food.cholesterolContent)")
+            Text("\(food.sodiumContent)")
+            Text("\(food.dietaryFiberContent)")
+            Text("\(food.sugarContent)")
         }
         .font(.title3)
         .padding(.leading)
@@ -118,16 +118,16 @@ struct Macronutrients: View {
                 }
 
                 GridRow {
-                    Text("🔥 \(food.calories.digits)")
-                    if (food.protein.digits.starts(with: "0")) && (food.protein.digits.count > 1) {
-                        Text("🍗 0.\(food.protein.digits.deletingPrefix("0")) g")
+                    Text("🔥 \(food.calorieCount.digits)")
+                    if (food.proteinContent.digits.starts(with: "0")) && (food.proteinContent.digits.count > 1) {
+                        Text("🍗 0.\(food.proteinContent.digits.deletingPrefix("0")) g")
                     } else {
-                        Text("🍗 \(food.protein.digits) g")
+                        Text("🍗 \(food.proteinContent.digits) g")
                     }
 
-                    Text("🧈 \(food.totalFat.digits) g")
+                    Text("🧈 \(food.totalFatContent.digits) g")
 
-                    Text("🍚 \(food.totalCarbohydrate.digits) g")
+                    Text("🍚 \(food.totalCarbohydrateContent.digits) g")
                 }
                 .foregroundColor(.gray)
             }
@@ -139,7 +139,7 @@ struct Macronutrients: View {
 }
 
 #Preview {
-    let sampleFood = FoodModel(id: UUID(), allergens: "Fish", calories: "130", caloriesFromFat: "90 calories", cholestrol: "300", dietaryFiber: "0", ingredients: "Salmon, Atlantic Filet (Atlantic Salmon, Canthaxanthin Color, Astaxanthin Color), Oil Vegetable Blend w/ Pure Olive Oil (Vegetable Oil [may contain one or more of the following: soybean, canola, corn, sunflower oil], Pure Olive Oil, Beta Carotene)", name: "Seared Salmon", protein: "10", saturatedFat: "2", servingSize: "2 oz", sodium: "30", sugars: "0", totalCarbohydrate: "0", totalFat: "10", transFat: "10")
+    let sampleFood = FoodModel(id: UUID(), allergenInformation: "Fish", calorieCount: "130", caloriesFromFatContent: "90 calories", cholesterolContent: "300", dietaryFiberContent: "0", ingredientList: "Salmon, Atlantic Filet (Atlantic Salmon, Canthaxanthin Color, Astaxanthin Color), Oil Vegetable Blend w/ Pure Olive Oil (Vegetable Oil [may contain one or more of the following: soybean, canola, corn, sunflower oil], Pure Olive Oil, Beta Carotene)", foodName: "Seared Salmon", proteinContent: "10", saturatedFatContent: "2", servingSizeDescription: "2 oz", sodiumContent: "30", sugarContent: "0", totalCarbohydrateContent: "0", totalFatContent: "10", transFatContent: "10")
 
     FoodDetailView(meal: ContentView().$breakfast, vm: FoodManagementViewModel(), togglePopup: FoodSelectionView(meal: ContentView().$breakfast, vm: FoodManagementViewModel(), toggle: MealDetailView(vm: FoodManagementViewModel(), meal: ContentView().$breakfast).$showingPopover).$toggle, food: sampleFood)
 }

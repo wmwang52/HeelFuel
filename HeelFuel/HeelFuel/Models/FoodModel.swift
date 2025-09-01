@@ -9,9 +9,9 @@ import Foundation
 
 struct FoodModel: Codable, Hashable, Identifiable {
     var id = UUID()
-    var allergens, calories, caloriesFromFat, cholestrol: String
-    var dietaryFiber, ingredients, name, protein: String
-    var saturatedFat, servingSize, sodium, sugars: String
-    var totalCarbohydrate, totalFat: String
-    var transFat: String
+    var allergenInformation, calorieCount, caloriesFromFatContent, cholesterolContent: String
+    var dietaryFiberContent, ingredientList, foodName, proteinContent: String
+    var saturatedFatContent, servingSizeDescription, sodiumContent, sugarContent: String
+    var totalCarbohydrateContent, totalFatContent: String
+    var transFatContent: String
 }
