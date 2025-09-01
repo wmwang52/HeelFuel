@@ -5,8 +5,8 @@
 //  Created by William Wang on 9/1/25.
 //
 
-import SwiftUI
 import SwiftData
+import SwiftUI
 
 @main
 struct HeelFuelApp: App {

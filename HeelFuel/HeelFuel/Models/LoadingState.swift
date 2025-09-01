@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+enum LoadingState {
+    case idle
+    case success([[Food]])
+    case loading
+    case error(String)
+}

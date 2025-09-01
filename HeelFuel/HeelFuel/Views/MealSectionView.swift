@@ -8,11 +8,37 @@
 import SwiftUI
 
 struct MealSectionView: View {
+    var icon: String
+    var mealTime: String
+    var calories: String
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Text(icon)
+                .padding(.horizontal, 10)
+
+            VStack(alignment: .leading) {
+                Text(mealTime)
+                    .fontWeight(.bold)
+                if calories != "" {
+                    Text("\(calories) cal")
+                        .foregroundColor(.secondary)
+                        .font(.subheadline)
+                }
+            }
+            Spacer()
+            Image(systemName: "plus")
+                .font(.title)
+                .foregroundColor(.white)
+                .padding(5)
+                .background(Color.blue)
+                .cornerRadius(40)
+        }
+        .padding([.horizontal, .vertical], 20)
+        .background(Color.white)
     }
 }
 
 #Preview {
-    MealSectionView()
+    MealSectionView(icon: "🍳", mealTime: "Breakfast", calories: " 856/847")
 }

@@ -12,7 +12,7 @@ struct ContentView: View {
 //    @Environment(\.modelContext) private var modelContext
 //    @Query private var items: [Item]
 
-    @StateObject var vm = AddFoodViewModel()
+    @State var vm = AddFoodViewModel()
 
     @State var breakfast = MealModel(mealTime: "Breakfast", emoji: "🍳", image: "breakfast", index: 0, caloriesEaten: 0, carbsEaten: 0, fatEaten: 0, proteinEaten: 0, mealList: [])
     @State var lunch = MealModel(mealTime: "Lunch", emoji: "🍱", image: "lunch", index: 1, caloriesEaten: 0, carbsEaten: 0, fatEaten: 0, proteinEaten: 0, mealList: [])
@@ -48,17 +48,11 @@ struct ContentView: View {
                     Divider()
                 }
                 .cornerRadius(20)
-                .shadow(radius: 2)
+                .shadow(radius: 1)
                 .padding(.horizontal, 10)
-
-                Spacer()
             }
         } detail: {
-            Text("Select an item")
-        }.onAppear {
-            vm.resetDefaults()
-            vm.findFoods()
-            print(vm.foodList.indices)
+            Text("Choose a Category")
         }
     }
 }
