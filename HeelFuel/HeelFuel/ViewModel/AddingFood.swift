@@ -1,8 +1,8 @@
 //
-//  AddFoodViewModel.swift
+//  AddingFoodViewModel.swift
 //  HeelFuel
 //
-//  Created by Mitchell Anderson on 4/17/23.
+//  Created by William Wang on 9/1/25.
 //
 
 //MARK: ViewModel used in adding foods using UserDefaults to store the data
@@ -61,3 +61,4 @@ class AddFoodViewModel: ObservableObject {
         totalCalories = 0
     }
 }
+
