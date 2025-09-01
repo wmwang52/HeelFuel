@@ -89,7 +89,7 @@ struct FoodDetailView_Previews: PreviewProvider {
     static var previews: some View {
         let sampleFood = Food(id: UUID(), allergens: "Fish", calories: "130", caloriesFromFat: "90 calories", cholestrol: "300", dietaryFiber: "0", ingredients: "Salmon, Atlantic Filet (Atlantic Salmon, Canthaxanthin Color, Astaxanthin Color), Oil Vegetable Blend w/ Pure Olive Oil (Vegetable Oil [may contain one or more of the following: soybean, canola, corn, sunflower oil], Pure Olive Oil, Beta Carotene)", name: "Seared Salmon", protein: "10", saturatedFat: "2", servingSize: "2 oz", sodium: "30", sugars: "0", totalCarbohydrate: "0", totalFat: "10", transFat: "10")
 
-        FoodDetailView(meal: HomeView().$breakfast, vm: AddFoodViewModel(), togglePopup: AddFoodView(meal: HomeView().$breakfast, vm: AddFoodViewModel(), toggle: MealView(vm: AddFoodViewModel(), meal: HomeView().$breakfast).$showingPopover).$toggle, food: sampleFood)
+        FoodDetailView(meal: ContentView().$breakfast, vm: AddFoodViewModel(), togglePopup: AddFoodView(meal: ContentView().$breakfast, vm: AddFoodViewModel(), toggle: MealView(vm: AddFoodViewModel(), meal: ContentView().$breakfast).$showingPopover).$toggle, food: sampleFood)
     }
 }
 

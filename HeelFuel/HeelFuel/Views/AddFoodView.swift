@@ -124,6 +124,6 @@ struct AddFoodView: View {
 
 struct AddFoodView_Previews: PreviewProvider {
     static var previews: some View {
-        AddFoodView(meal: HomeView().$breakfast, vm: AddFoodViewModel(), toggle: MealView(vm: AddFoodViewModel(), meal: HomeView().$breakfast).$showingPopover)
+        AddFoodView(meal: ContentView().$breakfast, vm: AddFoodViewModel(), toggle: MealView(vm: AddFoodViewModel(), meal: ContentView().$breakfast).$showingPopover)
     }
 }

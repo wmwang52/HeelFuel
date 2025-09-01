@@ -113,6 +113,6 @@ struct MealView: View {
 
 struct MealViewPreview: PreviewProvider {
     static var previews: some View {
-        MealView(vm: AddFoodViewModel(), meal: HomeView().$breakfast)
+        MealView(vm: AddFoodViewModel(), meal: ContentView().$breakfast)
     }
 }
