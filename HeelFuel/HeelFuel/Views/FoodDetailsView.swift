@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct FoodDetailView: View {
-    @Binding var meal: MealModel
+    @Binding var meal: MealViewModel
     @Environment(\.dismiss) var dismiss
-    @StateObject var vm: AddFoodViewModel
+    @StateObject var vm: FoodManagementViewModel
     @Binding var togglePopup: Bool
 
-    let food: Food
+    let food: FoodModel
 
     var body: some View {
         NavigationStack {
@@ -102,7 +102,7 @@ extension String {
 }
 
 struct Macronutrients: View {
-    var food: Food
+    var food: FoodModel
 
     var body: some View {
         VStack {
@@ -139,7 +139,7 @@ struct Macronutrients: View {
 }
 
 #Preview {
-    let sampleFood = Food(id: UUID(), allergens: "Fish", calories: "130", caloriesFromFat: "90 calories", cholestrol: "300", dietaryFiber: "0", ingredients: "Salmon, Atlantic Filet (Atlantic Salmon, Canthaxanthin Color, Astaxanthin Color), Oil Vegetable Blend w/ Pure Olive Oil (Vegetable Oil [may contain one or more of the following: soybean, canola, corn, sunflower oil], Pure Olive Oil, Beta Carotene)", name: "Seared Salmon", protein: "10", saturatedFat: "2", servingSize: "2 oz", sodium: "30", sugars: "0", totalCarbohydrate: "0", totalFat: "10", transFat: "10")
+    let sampleFood = FoodModel(id: UUID(), allergens: "Fish", calories: "130", caloriesFromFat: "90 calories", cholestrol: "300", dietaryFiber: "0", ingredients: "Salmon, Atlantic Filet (Atlantic Salmon, Canthaxanthin Color, Astaxanthin Color), Oil Vegetable Blend w/ Pure Olive Oil (Vegetable Oil [may contain one or more of the following: soybean, canola, corn, sunflower oil], Pure Olive Oil, Beta Carotene)", name: "Seared Salmon", protein: "10", saturatedFat: "2", servingSize: "2 oz", sodium: "30", sugars: "0", totalCarbohydrate: "0", totalFat: "10", transFat: "10")
 
-    FoodDetailView(meal: ContentView().$breakfast, vm: AddFoodViewModel(), togglePopup: AddFoodView(meal: ContentView().$breakfast, vm: AddFoodViewModel(), toggle: MealView(vm: AddFoodViewModel(), meal: ContentView().$breakfast).$showingPopover).$toggle, food: sampleFood)
+    FoodDetailView(meal: ContentView().$breakfast, vm: FoodManagementViewModel(), togglePopup: FoodSelectionView(meal: ContentView().$breakfast, vm: FoodManagementViewModel(), toggle: MealDetailView(vm: FoodManagementViewModel(), meal: ContentView().$breakfast).$showingPopover).$toggle, food: sampleFood)
 }

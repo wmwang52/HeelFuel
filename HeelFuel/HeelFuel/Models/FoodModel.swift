@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Food: Codable, Hashable, Identifiable {
+struct FoodModel: Codable, Hashable, Identifiable {
     var id = UUID()
     var allergens, calories, caloriesFromFat, cholestrol: String
     var dietaryFiber, ingredients, name, protein: String

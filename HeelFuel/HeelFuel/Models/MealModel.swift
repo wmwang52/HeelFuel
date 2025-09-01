@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MealModel {
+struct MealViewModel {
     var mealTime: String
     var emoji: String
     var image: String?
@@ -16,5 +16,5 @@ struct MealModel {
     var carbsEaten: Int
     var fatEaten: Int
     var proteinEaten: Int
-    var mealList: [Food]
+    var mealList: [FoodModel]
 }

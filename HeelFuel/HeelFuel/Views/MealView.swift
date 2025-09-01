@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct MealView: View {
-    @Bindable public var vm: AddFoodViewModel
-    @Binding var meal: MealModel
+struct MealDetailView: View {
+    @Bindable public var vm: FoodManagementViewModel
+    @Binding var meal: MealViewModel
     @State var showingPopover = false
 
     var body: some View {
@@ -79,7 +79,7 @@ struct MealView: View {
                 }
             }
             .popover(isPresented: $showingPopover) {
-                AddFoodView(meal: $meal, vm: vm, toggle: $showingPopover)
+                FoodSelectionView(meal: $meal, vm: vm, toggle: $showingPopover)
             }
         }
     }
@@ -109,5 +109,5 @@ struct MealView: View {
 }
 
 #Preview {
-    MealView(vm: AddFoodViewModel(), meal: ContentView().$breakfast)
+    MealDetailView(vm: FoodManagementViewModel(), meal: ContentView().$breakfast)
 }

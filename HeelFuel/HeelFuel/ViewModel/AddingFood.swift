@@ -13,12 +13,12 @@ import Observation
 @MainActor
 @Observable
 
-class AddFoodViewModel: ObservableObject {
+class FoodManagementViewModel: ObservableObject {
 //    private let service = foodRequestService()
 
-    var foodList: [[Food]] = [[]]
-    var test: [Food] = []
-    var state: LoadingState = .idle
+    var foodList: [[FoodModel]] = [[]]
+    var test: [FoodModel] = []
+    var state: LoadingStateModel = .idle
     var totalCalories: Int = 0
     var carbs: Int = 0
     var fat: Int = 0
@@ -38,7 +38,7 @@ class AddFoodViewModel: ObservableObject {
 //        }
 //    }
 
-    public func addFoodValues(food: Food) {
+    public func addFoodValues(food: FoodModel) {
         totalCalories += Int(food.calories.digits)!
         fat += Int(food.totalFat.digits)!
         carbs += Int(food.totalCarbohydrate.digits)!

@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct AddFoodView: View {
-    @Binding var meal: MealModel
-    @StateObject var vm: AddFoodViewModel
+struct FoodSelectionView: View {
+    @Binding var meal: MealViewModel
+    @StateObject var vm: FoodManagementViewModel
     @State private var searchText = ""
     @Binding var toggle: Bool
 
@@ -117,5 +117,5 @@ struct AddFoodView: View {
 }
 
 #Preview {
-    AddFoodView(meal: ContentView().$breakfast, vm: AddFoodViewModel(), toggle: MealView(vm: AddFoodViewModel(), meal: ContentView().$breakfast).$showingPopover)
+    FoodSelectionView(meal: ContentView().$breakfast, vm: FoodManagementViewModel(), toggle: MealDetailView(vm: FoodManagementViewModel(), meal: ContentView().$breakfast).$showingPopover)
 }

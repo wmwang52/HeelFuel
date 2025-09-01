@@ -7,9 +7,9 @@
 
 import Foundation
 
-enum LoadingState {
+enum LoadingStateModel {
     case idle
-    case success([[Food]])
+    case success([[FoodModel]])
     case loading
     case error(String)
 }
